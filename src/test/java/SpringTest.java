@@ -1,0 +1,57 @@
+import com.github.pagehelper.PageHelper;
+import com.yuewen.config.AppConfig;
+import com.yuewen.constants.DatabaseCons;
+import com.yuewen.mapper.GeneralMapper;
+import com.yuewen.mapper.UsertagMapper;
+import com.yuewen.model.Usertag;
+import com.yuewen.util.DynamicDBUtil;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Created by duanyixiao on 2017/7/25.
+ */
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {AppConfig.class, DatabaseCons.class})
+public class SpringTest {
+
+
+    @Autowired
+    private AppConfig appConfig;
+
+    @Autowired
+    private DatabaseCons databaseCons;
+
+    @Autowired
+    private UsertagMapper usertagMapper;
+
+    @Autowired
+    private GeneralMapper generalMapper;
+
+    @Test
+    public void testMybatis() {
+//        List<Usertag> list = usertagMapper.getAllWithMapper();
+//        System.out.println(list);
+
+        String url = "%s";
+        System.out.println(String.format(url,"here"));
+
+    }
+
+    @Test
+    public void testProperties() {
+        PageHelper.startPage(2,5);
+        DynamicDBUtil.setDatabaseName("usertag0");
+        List<Usertag> list = generalMapper.selectAll();
+        list.forEach(System.out::println);
+
+    }
+
+
+}
