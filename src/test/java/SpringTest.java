@@ -46,7 +46,7 @@ public class SpringTest {
 
     @Test
     public void testProperties() {
-        PageHelper.startPage(2,5);
+//        PageHelper.startPage(2,5);
         DynamicDBUtil.setDatabaseName("usertag0");
         List<Usertag> list = generalMapper.selectAll();
         list.forEach(System.out::println);
