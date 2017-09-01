@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <listener>
+        <listener-class>com.yuewen.taf.TafAppListener</listener-class>
+    </listener>
+    <service name="AuthInfoObj">
+        <home-api>com.yuewen.taf.servant.AuthInfoServant</home-api>
+        <home-class>com.yuewen.service.AuthInfoService</home-class>
+    </service>
+    <service name="HttpWebServiceObj">
+        <home-api>com.qq.cloud.taf.protocol.codec.http.service.HttpWebService</home-api>
+        <home-class>com.yuewen.taf.base.HttpServant</home-class>
+    </service>
+</services>
