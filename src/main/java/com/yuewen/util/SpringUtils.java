@@ -20,11 +20,9 @@ public class SpringUtils implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println(">>>>>>> initial applicationcontext "+(applicationContext!=null?"not null":"null"));
-//        logger.error(">>>>>>> initial applicationcontext "+(applicationContext!=null?"not null":"null"));
         if (applicationContext != null)
             SpringUtils.applicationContext = applicationContext;
         System.out.println(">>>>>>>> initial end");
-//        logger.error(">>>>>>>> initial end");
     }
 
     public static Optional<ApplicationContext> getApplicationContext(){

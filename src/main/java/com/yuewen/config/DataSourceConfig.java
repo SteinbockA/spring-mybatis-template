@@ -2,18 +2,17 @@ package com.yuewen.config;
 
 import com.github.pagehelper.PageInterceptor;
 import com.yuewen.constants.ConfigFileCons;
-import com.yuewen.util.DynamicDBUtil;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
+import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
@@ -36,17 +35,11 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    @Bean
-    public DynamicDBUtil dynamicDataSource() {
-        DynamicDBUtil dynamicDataSource = new DynamicDBUtil(dataSource(), config.dbname, config.num);
-        return dynamicDataSource;
-
-    }
 
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dynamicDataSource());
+        bean.setDataSource(dataSource());
 
         //分页插件
         PageInterceptor pageHelper = new PageInterceptor();
@@ -64,7 +57,7 @@ public class DataSourceConfig {
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager(DynamicDBUtil dynamicDataSource) {
-        return new DataSourceTransactionManager(dynamicDataSource);
+    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource());
     }
 }
