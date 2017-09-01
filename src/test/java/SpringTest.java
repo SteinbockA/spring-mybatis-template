@@ -4,6 +4,7 @@ import com.yuewen.mapper.GeneralMapper;
 import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
 import com.yuewen.service.RedisClient;
+import com.yuewen.util.DynamicDBUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,15 @@ public class SpringTest {
     @Test
     public void testRedis(){
         redisClient.hgetAll("redis").ifPresent(System.out::println);
+    }
+
+    @Test
+    public void testPropersties() {
+//        PageHelper.startPage(2,5);
+        DynamicDBUtils.setDatabaseName("usertag1");
+        List<Usertag> list = generalMapper.selectAll();
+        list.forEach(System.out::println);
+
     }
 
 
