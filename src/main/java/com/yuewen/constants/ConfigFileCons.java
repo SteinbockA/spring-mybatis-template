@@ -10,21 +10,8 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@PropertySource("data.properties")
 public class ConfigFileCons {
-    //mysql
-    @Value("${datasource.url}")
-    public String url;
-    @Value("${datasource.username}")
-    public String username;
-    @Value("${datasource.password}")
-    public String password;
-    @Value("${datasource.driver-class-name}")
-    public String driverClassName;
-    @Value("${datasource.dbname}")
-    public String dbname;
-    @Value("${datasource.num}")
-    public int num;
-
     //redis
     @Value("${redis.host}")
     public String host;
