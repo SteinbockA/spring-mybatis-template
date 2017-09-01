@@ -19,7 +19,6 @@ import java.util.Properties;
  * Created by duanyixiao on 2017/8/31.
  */
 @Configuration
-@PropertySource(value = "classpath:data.properties")
 public class DataSourceConfig {
 
     @Autowired
