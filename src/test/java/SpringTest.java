@@ -1,4 +1,5 @@
 import com.yuewen.config.AppConfig;
+import com.yuewen.constants.ConfigFileCons;
 import com.yuewen.mapper.GeneralMapper;
 import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
@@ -15,20 +16,21 @@ import java.util.List;
  * Created by duanyixiao on 2017/7/25.
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@ContextConfiguration(classes = {AppConfig.class, ConfigFileCons.class})
 public class SpringTest {
 
 
     @Autowired
     private AppConfig appConfig;
 
+    @Autowired
+    private ConfigFileCons databaseCons;
 
     @Autowired
     private UsertagMapper usertagMapper;
 
     @Autowired
     private GeneralMapper generalMapper;
-
 
     @Test
     public void testMybatis() {
@@ -46,11 +48,6 @@ public class SpringTest {
         DynamicDBUtil.setDatabaseName("usertag0");
         List<Usertag> list = generalMapper.selectAll();
         list.forEach(System.out::println);
-
-    }
-
-    @Test
-    public void testRedis(){
 
     }
 
