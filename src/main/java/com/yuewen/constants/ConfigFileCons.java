@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@PropertySource(value = "classpath:data.properties")
 public class ConfigFileCons {
     @Value("${datasource.url}")
     public String url;
