@@ -11,10 +11,10 @@ import java.util.Map;
 /**
  * Created by duanyixiao on 2017/7/26.
  */
-public class DynamicDBUtil extends AbstractRoutingDataSource {
+public class DynamicDBUtils extends AbstractRoutingDataSource {
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 
-    public DynamicDBUtil(BasicDataSource dataSource, String dataBaseName, int dataBaseNum) {
+    public DynamicDBUtils(BasicDataSource dataSource, String dataBaseName, int dataBaseNum) {
         super();
         Map<Object, Object> targetDataSources = new HashMap<>();
         String url = dataSource.getUrl();

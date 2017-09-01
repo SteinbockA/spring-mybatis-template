@@ -3,7 +3,7 @@ import com.yuewen.constants.ConfigFileCons;
 import com.yuewen.mapper.GeneralMapper;
 import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
-import com.yuewen.util.DynamicDBUtil;
+import com.yuewen.util.DynamicDBUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class SpringTest {
     @Test
     public void testProperties() {
 //        PageHelper.startPage(2,5);
-        DynamicDBUtil.setDatabaseName("usertag0");
+        DynamicDBUtils.setDatabaseName("usertag0");
         List<Usertag> list = generalMapper.selectAll();
         list.forEach(System.out::println);
 
