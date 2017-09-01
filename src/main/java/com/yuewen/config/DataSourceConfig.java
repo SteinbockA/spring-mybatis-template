@@ -1,11 +1,13 @@
 package com.yuewen.config;
 
 import com.github.pagehelper.PageInterceptor;
+import com.yuewen.constants.ConfigFileCons;
 import com.yuewen.util.DynamicDBUtil;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,32 +22,23 @@ import java.util.Properties;
 @Configuration
 @PropertySource(value = "classpath:data.properties")
 public class DataSourceConfig {
-    @Value("${datasource.url}")
-    private String url;
-    @Value("${datasource.username}")
-    private String username;
-    @Value("${datasource.password}")
-    private String password;
-    @Value("${datasource.driver-class-name}")
-    private String driverClassName;
-    @Value("${datasource.dbname}")
-    private String dbname;
-    @Value("${datasource.num}")
-    private int num;
+
+    @Autowired
+    private ConfigFileCons config;
 
     @Bean
     public BasicDataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
+        dataSource.setDriverClassName(config.driverClassName);
+        dataSource.setUrl(config.url);
+        dataSource.setUsername(config.username);
+        dataSource.setPassword(config.password);
         return dataSource;
     }
 
     @Bean
     public DynamicDBUtil dynamicDataSource() {
-        DynamicDBUtil dynamicDataSource = new DynamicDBUtil(dataSource(), dbname, num);
+        DynamicDBUtil dynamicDataSource = new DynamicDBUtil(dataSource(), config.dbname, config.num);
         return dynamicDataSource;
 
     }

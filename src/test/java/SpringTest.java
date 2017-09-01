@@ -1,6 +1,5 @@
-import com.github.pagehelper.PageHelper;
 import com.yuewen.config.AppConfig;
-import com.yuewen.constants.DatabaseCons;
+import com.yuewen.constants.ConfigFileCons;
 import com.yuewen.mapper.GeneralMapper;
 import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
@@ -12,13 +11,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by duanyixiao on 2017/7/25.
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, DatabaseCons.class})
+@ContextConfiguration(classes = {AppConfig.class, ConfigFileCons.class})
 public class SpringTest {
 
 
@@ -26,7 +24,7 @@ public class SpringTest {
     private AppConfig appConfig;
 
     @Autowired
-    private DatabaseCons databaseCons;
+    private ConfigFileCons databaseCons;
 
     @Autowired
     private UsertagMapper usertagMapper;
