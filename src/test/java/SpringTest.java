@@ -3,6 +3,7 @@ import com.yuewen.constants.ConfigFileCons;
 import com.yuewen.mapper.GeneralMapper;
 import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
+import com.yuewen.service.RedisClient;
 import com.yuewen.util.DynamicDBUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +33,9 @@ public class SpringTest {
     @Autowired
     private GeneralMapper generalMapper;
 
+    @Autowired
+    private RedisClient redisClient;
+
     @Test
     public void testMybatis() {
 //        List<Usertag> list = usertagMapper.getAllWithMapper();
@@ -49,6 +53,11 @@ public class SpringTest {
         List<Usertag> list = generalMapper.selectAll();
         list.forEach(System.out::println);
 
+    }
+
+    @Test
+    public void testRedis(){
+        redisClient.hgetAll("redis").ifPresent(System.out::println);
     }
 
 

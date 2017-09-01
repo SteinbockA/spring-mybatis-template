@@ -1,6 +1,7 @@
 package com.yuewen.config;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.yuewen.constants.ConfigFileCons;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.JedisPool;
@@ -12,57 +13,28 @@ import redis.clients.jedis.JedisPoolConfig;
 @Configuration
 public class RedisConfig {
 
-    @Value("${redis.host}")
-    public String host;
-
-    @Value(("${redis.port}"))
-    public int port;
-
-    @Value("${redis.password}")
-    public String password;
-
-    @Value("${redis.timeout}")
-    public int timeout;
-
-    @Value("${redis.db}")
-    public int db;
-
-    @Value("${redis.poolSize}")
-    public int poolSize;
-
-    @Value("${redis.maxIdle}")
-    public int maxIdle;
-
-    @Value("${redis.maxWait}")
-    public int maxWait;
-
-    @Value("${redis.currentContext}")
-    public String currentContext;
-
+    @Autowired
+    private ConfigFileCons config;
 
     @Bean
     public JedisPoolConfig jedisPoolConfig() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-        jedisPoolConfig.setMaxWaitMillis(maxWait);
-        jedisPoolConfig.setMaxIdle(maxIdle);
+        jedisPoolConfig.setMaxWaitMillis(config.maxWait);
+        jedisPoolConfig.setMaxIdle(config.maxIdle);
         return jedisPoolConfig;
     }
 
     @Bean
     public JedisPool jedisPool() {
         JedisPool jedisPool = null;
-        if ("uat".equals(currentContext)) {
-            jedisPool = new JedisPool(jedisPoolConfig(), host, port, timeout,
-                    password, db);
-        } else if ("online".equals(currentContext)) {
-            jedisPool = new JedisPool(jedisPoolConfig(), host, port, timeout,
-                    password);
+        if ("uat".equals(config.currentContext)) {
+            jedisPool = new JedisPool(jedisPoolConfig(), config.host, config.port, config.timeout,
+                    null, config.db);
+        } else if ("online".equals(config.currentContext)) {
+            jedisPool = new JedisPool(jedisPoolConfig(), config.host, config.port, config.timeout,
+                    config.redis_password);
         }
         return jedisPool;
-    }
-
-    public static void main(String[] args) {
-
     }
 
 }
