@@ -10,7 +10,6 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @ComponentScan(value = "com.yuewen")
-@MapperScan(value = "com.yuewen.mapper")
 public class AppConfig {
 
 }
