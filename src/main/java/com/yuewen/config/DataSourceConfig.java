@@ -2,6 +2,7 @@ package com.yuewen.config;
 
 import com.github.pagehelper.PageInterceptor;
 import com.yuewen.constants.ConfigFileCons;
+import com.yuewen.util.DynamicDBUtils;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -35,12 +36,17 @@ public class DataSourceConfig {
         return dataSource;
     }
 
+    @Bean
+    public DynamicDBUtils dynamicDataSource() {
+        DynamicDBUtils dynamicDataSource = new DynamicDBUtils(dataSource(), config.dbname, config.num);
+        return dynamicDataSource;
 
+    }
 
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource());
+        bean.setDataSource(dynamicDataSource());
 
         //分页插件
         PageInterceptor pageHelper = new PageInterceptor();
@@ -58,7 +64,7 @@ public class DataSourceConfig {
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource());
+    public DataSourceTransactionManager transactionManager(DynamicDBUtils dynamicDataSource) {
+        return new DataSourceTransactionManager(dynamicDataSource);
     }
 }
