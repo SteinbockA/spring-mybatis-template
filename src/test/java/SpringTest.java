@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * Created by duanyixiao on 2017/7/25.
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, ConfigFileCons.class})
+@ContextConfiguration(classes = {AppConfig.class})
 public class SpringTest {
 
 
@@ -31,6 +32,9 @@ public class SpringTest {
     @Autowired
     private GeneralMapper generalMapper;
 
+    @Autowired
+    private Mapper<Usertag> mapper;
+
     @Test
     public void testMybatis() {
 //        List<Usertag> list = usertagMapper.getAllWithMapper();
@@ -44,7 +48,7 @@ public class SpringTest {
     @Test
     public void testProperties() {
 //        PageHelper.startPage(2,5);
-        List<Usertag> list = generalMapper.selectAll();
+        List<Usertag> list = mapper.selectAll();
         list.forEach(System.out::println);
 
     }

@@ -24,5 +24,4 @@ public class ConfigFileCons {
     public String dbname;
     @Value("${datasource.num}")
     public int num;
-
 }
