@@ -1,3 +1,4 @@
+import com.github.pagehelper.PageHelper;
 import com.yuewen.config.AppConfig;
 import com.yuewen.constants.ConfigFileCons;
 import com.yuewen.mapper.GeneralMapper;
@@ -47,8 +48,8 @@ public class SpringTest {
 
     @Test
     public void testProperties() {
-//        PageHelper.startPage(2,5);
-        List<Usertag> list = mapper.selectAll();
+        PageHelper.startPage(2,5);
+        List<Usertag> list = mapper.select(new Usertag());
         list.forEach(System.out::println);
 
     }
