@@ -1,13 +1,12 @@
 package com.yuewen.util;
 
-import com.mysql.jdbc.log.LogUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Created by duanyixiao on 2017/9/1.
  */
-public class LogUtis {
+public class LogUtils {
     private static final Logger log = LoggerFactory.getLogger(LogUtils.class);
 
     public static void debug(String s){
