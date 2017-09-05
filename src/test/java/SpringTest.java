@@ -1,7 +1,5 @@
 import com.yuewen.config.AppConfig;
 import com.yuewen.constants.ConfigFileCons;
-import com.yuewen.mapper.GeneralMapper;
-import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
 import com.yuewen.service.RedisClient;
 import com.yuewen.util.DynamicDBUtils;
@@ -27,11 +25,6 @@ public class SpringTest {
     @Autowired
     private ConfigFileCons databaseCons;
 
-    @Autowired
-    private UsertagMapper usertagMapper;
-
-    @Autowired
-    private GeneralMapper generalMapper;
 
     @Autowired
     private RedisClient redisClient;

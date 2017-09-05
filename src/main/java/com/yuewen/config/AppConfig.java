@@ -9,8 +9,7 @@ import org.springframework.context.annotation.PropertySource;
  * Created by duanyixiao on 2017/7/25.
  */
 @Configuration
-@ComponentScan(value = "com.yuewen")
-@MapperScan(value = "com.yuewen.mapper")
+@ComponentScan(basePackages = "com.yuewen")
 public class AppConfig {
 
 }
