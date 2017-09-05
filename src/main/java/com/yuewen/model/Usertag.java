@@ -1,6 +1,9 @@
 package com.yuewen.model;
 
+import com.yuewen.DataTransHandler;
 import lombok.Data;
+import org.apache.ibatis.annotations.Lang;
+import tk.mybatis.mapper.annotation.ColumnType;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,5 +18,6 @@ public class Usertag {
     private Long userid;
     private Long ywguid;
     private String tagname;
-    private String createtime;
+    @ColumnType(typeHandler = DataTransHandler.class)
+    private Long createtime;
 }

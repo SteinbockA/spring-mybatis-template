@@ -1,8 +1,11 @@
 package com.yuewen.config;
 
+import com.yuewen.base.IBaseMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
+
+import java.util.Properties;
 
 /**
  * Created by duanyixiao on 2017/7/25.
@@ -18,6 +21,12 @@ public class MybatisConfig {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         mapperScannerConfigurer.setBasePackage("com.yuewen.mapper");
+
+        Properties properties = new Properties();
+        properties.setProperty("mappers", IBaseMapper.class.getName());
+        properties.setProperty("notEmpty", "false");//insert、update是否判断字符串类型!='' 即 test="str != null"表达式内是否追加 and str != ''
+        properties.setProperty("IDENTITY", "MYSQL");
+        mapperScannerConfigurer.setProperties(properties);
         return mapperScannerConfigurer;
     }
 }
