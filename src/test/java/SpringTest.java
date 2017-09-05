@@ -1,9 +1,7 @@
-import com.yuewen.TestService;
 import com.yuewen.config.AppConfig;
 import com.yuewen.constants.ConfigFileCons;
+import com.yuewen.dao.UsertagDao;
 import com.yuewen.mapper.IMapper;
-import com.yuewen.mapper.GeneralMapper;
-import com.yuewen.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,16 +27,10 @@ public class SpringTest {
     private ConfigFileCons databaseCons;
 
     @Autowired
-    private UsertagMapper usertagMapper;
-
-    @Autowired
-    private GeneralMapper generalMapper;
-
-    @Autowired
     private IMapper mapper;
 
     @Autowired
-    private TestService testService;
+    private UsertagDao usertagDao;
 
 
 
@@ -65,8 +57,7 @@ public class SpringTest {
 
     @Test
     public void testService(){
-        List<Usertag> list = testService.test();
-        list.forEach(System.out::println);
+        usertagDao.test();
 
 
     }
