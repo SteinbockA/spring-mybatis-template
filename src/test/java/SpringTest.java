@@ -57,7 +57,7 @@ public class SpringTest {
 
     @Test
     public void testService(){
-        usertagDao.test();
+        usertagDao.duplicateinsert();
 
 
     }
