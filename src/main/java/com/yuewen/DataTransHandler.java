@@ -4,6 +4,7 @@ import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 
 /**
  * Created by duanyixiao on 2017/9/5.
@@ -11,7 +12,7 @@ import java.sql.*;
 public class DataTransHandler extends BaseTypeHandler<Long> {
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, Long aLong, JdbcType jdbcType) throws SQLException {
-        preparedStatement.setLong(i,aLong);
+        preparedStatement.setString(i, LocalDateTime.now().toString());
     }
 
     @Override
