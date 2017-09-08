@@ -25,7 +25,7 @@ public class LogUtils {
     }
 
     public static void error(String s){
-        log.info(s);
+        log.error(s);
     }
 
     public static void error(String s,Object...objects){
