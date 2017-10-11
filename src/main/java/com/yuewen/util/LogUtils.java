@@ -1,7 +1,12 @@
 package com.yuewen.util;
 
+import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by duanyixiao on 2017/9/1.
@@ -30,5 +35,13 @@ public class LogUtils {
 
     public static void error(String s,Object...objects){
         log.error(s,objects);
+    }
+
+    public static void main(String[] args) throws Exception {
+        List<Integer> list  = Lists.newArrayList();
+        Method method = list.getClass().getMethod("add",Object.class);
+        method.invoke(list,"String");
+        System.out.println(list);
+        
     }
 }

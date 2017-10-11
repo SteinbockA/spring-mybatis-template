@@ -1,6 +1,8 @@
 import com.google.common.collect.Lists;
+import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -8,25 +10,16 @@ import java.util.function.Function;
 /**
  * Created by duanyixiao on 2017/9/9.
  */
+@Data
+@Builder
 public class ListTest {
-    public static void tests(List list){
-        System.out.println(list);
-    }
-
-    public static void test2(List<?> lsit){
-        System.out.println(lsit);
-    }
-
-    public static void test3(List<? super Number> list){
-        System.out.println(list);
-    }
-
-
+    private String name;
+    private int age;
+    private int sex;
+    @Singular private List<Integer> secrets;
 
     public static void main(String[] args) {
-        List<Object> list = new ArrayList<>();
-        test3(list);
-
-
+        ListTest listTest = new ListTest.ListTestBuilder().secret(10).build();
+        System.out.println(listTest.getSecrets());
     }
 }
