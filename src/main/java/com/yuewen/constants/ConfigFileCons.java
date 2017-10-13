@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@PropertySource(value = "classpath:data.properties")
+@PropertySource(value = "classpath:config.properties")
 public class ConfigFileCons {
     //mysql
     @Value("${datasource.url}")
