@@ -20,7 +20,7 @@ public class MybatisConfig {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.yuewen.mapper");
+        mapperScannerConfigurer.setBasePackage("com.yuewen.db.mapper");
 
         Properties properties = new Properties();
         properties.setProperty("mappers", IBaseMapper.class.getName());
