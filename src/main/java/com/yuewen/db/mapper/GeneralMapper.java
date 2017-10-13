@@ -1,4 +1,4 @@
-package com.yuewen.mapper;
+package com.yuewen.db.mapper;
 
 import com.yuewen.model.Usertag;
 import tk.mybatis.mapper.common.Mapper;

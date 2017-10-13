@@ -1,7 +1,7 @@
 import com.yuewen.config.AppConfig;
 import com.yuewen.constants.ConfigFileCons;
-import com.yuewen.mapper.GeneralMapper;
-import com.yuewen.mapper.UsertagMapper;
+import com.yuewen.db.mapper.GeneralMapper;
+import com.yuewen.db.mapper.UsertagMapper;
 import com.yuewen.model.Usertag;
 import com.yuewen.service.RedisClient;
 import org.junit.Test;
