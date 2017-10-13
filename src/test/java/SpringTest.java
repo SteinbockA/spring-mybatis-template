@@ -1,8 +1,8 @@
 import com.yuewen.config.AppConfig;
 import com.yuewen.constants.ConfigFileCons;
-import com.yuewen.dao.UsertagDao;
-import com.yuewen.mapper.IMapper;
-import com.yuewen.model.Usertag;
+import com.yuewen.db.dao.UsertagDao;
+import com.yuewen.db.mapper.IMapper;
+import com.yuewen.db.model.Usertag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

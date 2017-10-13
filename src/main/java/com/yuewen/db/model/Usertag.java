@@ -1,8 +1,7 @@
-package com.yuewen.model;
+package com.yuewen.db.model;
 
 import com.yuewen.DataTransHandler;
 import lombok.Data;
-import org.apache.ibatis.annotations.Lang;
 import tk.mybatis.mapper.annotation.ColumnType;
 
 import javax.persistence.Id;
