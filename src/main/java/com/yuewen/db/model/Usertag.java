@@ -1,4 +1,4 @@
-package com.yuewen.model;
+package com.yuewen.db.model;
 
 import lombok.Data;
 
