@@ -1,7 +1,7 @@
-package com.yuewen.db.mapper;
+package com.yuewen.repository.db.mapper;
 
 import org.apache.ibatis.annotations.Select;
-import com.yuewen.db.model.Usertag;
+import com.yuewen.repository.db.model.Usertag;
 
 import java.util.List;
 

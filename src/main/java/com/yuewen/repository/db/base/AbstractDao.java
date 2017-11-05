@@ -1,4 +1,4 @@
-package com.yuewen.base;
+package com.yuewen.repository.db.base;
 
 import com.yuewen.util.LogUtils;
 import lombok.Data;

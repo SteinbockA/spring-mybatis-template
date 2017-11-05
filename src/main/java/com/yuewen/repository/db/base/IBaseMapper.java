@@ -1,4 +1,4 @@
-package com.yuewen.base;
+package com.yuewen.repository.db.base;
 
 import tk.mybatis.mapper.common.IdsMapper;
 import tk.mybatis.mapper.common.Mapper;

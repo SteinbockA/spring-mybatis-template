@@ -29,7 +29,7 @@ public class RedisConfig {
         JedisPool jedisPool = null;
         if ("uat".equals(config.currentContext)) {
             jedisPool = new JedisPool(jedisPoolConfig(), config.host, config.port, config.timeout,
-                    null, config.db);
+                    config.redis_password, config.db);
         } else if ("online".equals(config.currentContext)) {
             jedisPool = new JedisPool(jedisPoolConfig(), config.host, config.port, config.timeout,
                     config.redis_password);
