@@ -1,4 +1,4 @@
-package com.yuewen;
+package com.yuewen.helper;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

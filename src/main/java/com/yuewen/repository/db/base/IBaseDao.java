@@ -1,6 +1,5 @@
-package com.yuewen.base;
+package com.yuewen.repository.db.base;
 
-import org.apache.ibatis.exceptions.TooManyResultsException;
 import tk.mybatis.mapper.entity.Condition;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.yuewen.db.model;
+package com.yuewen.repository.db.model;
 
-import com.yuewen.DataTransHandler;
+import com.yuewen.helper.DataTransHandler;
 import lombok.Data;
 import tk.mybatis.mapper.annotation.ColumnType;
 
