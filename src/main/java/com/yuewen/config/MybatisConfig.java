@@ -1,6 +1,6 @@
 package com.yuewen.config;
 
-import com.yuewen.base.IBaseMapper;
+import com.yuewen.repository.db.base.IBaseMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
@@ -20,7 +20,7 @@ public class MybatisConfig {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.yuewen.mapper");
+        mapperScannerConfigurer.setBasePackage("com.yuewen.repository.db.mapper");
 
         Properties properties = new Properties();
         properties.setProperty("mappers", IBaseMapper.class.getName());

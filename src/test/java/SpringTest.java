@@ -1,6 +1,6 @@
 import com.yuewen.config.AppConfig;
 import com.yuewen.constants.ConfigFileCons;
-import com.yuewen.model.Usertag;
+import com.yuewen.repository.db.model.Usertag;
 import com.yuewen.service.RedisClient;
 import com.yuewen.util.DynamicDBUtils;
 import org.junit.Test;

@@ -1,10 +1,9 @@
-package com.yuewen.dao;
+package com.yuewen.repository.db.dao;
 
-import com.yuewen.base.AbstractDao;
-import com.yuewen.mapper.IMapper;
-import com.yuewen.model.Usertag;
+import com.yuewen.repository.db.base.AbstractDao;
+import com.yuewen.repository.db.mapper.IMapper;
+import com.yuewen.repository.db.model.Usertag;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
